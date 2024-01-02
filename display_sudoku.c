@@ -28,6 +28,10 @@ void read_csv(int Row, int Col, int array[Row][Col])
 {
     int row, col, data;
     FILE *ptr = fopen("text", "r");
+    if(ptr == NULL)
+    {
+        printf("error while opening the file\n");
+    }
     while ((fscanf(ptr, "%d", &row) == 1) && (fscanf(ptr, "%d", &col) == 1) &&
            (fscanf(ptr, "%d", &data) == 1))
         array[row-1][col-1] = data;
