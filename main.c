@@ -9,6 +9,7 @@ int main()
     init_array_2D(SIZE, SIZE, array);
     printf("\n\n");
     read_csv(SIZE, SIZE, array);
+
     // display_array();
     print_sudoku(SIZE, SIZE, array);
 }
