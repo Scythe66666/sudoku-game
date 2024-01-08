@@ -65,12 +65,11 @@ void find_empty_CoOrdinates(int size, int array[size][size])
  * \param index index on which we are going to perform the check in form of
  * row *10 +col
  * */
-int check_correct(int size, int array[size][size], int index)
+int check_correct(int size, int array[size][size], int row, int col)
 {
-    int row = index / 10;
-    int col = index % 10;
     int num = array[row][col];
-    int sub_grid_no = row / size + col;
+    int sqrt_size = sqrt(size);
+    int sub_grid_no = (row/sqrt_size) * sqrt_size + col/sqrt_size;
     int count = 0;
     // row check
     for (int i = 0; i < size; i++)
@@ -101,12 +100,11 @@ int check_correct(int size, int array[size][size], int index)
     }
     count = 0;
     // sub grid check
-    for (int i = 0; i < sqrt(size); i++)
+    for (int i = 0; i < sqrt_size; i++)
     {
-        for (int j = 0; j < sqrt(size); j++)
+        for (int j = 0; j < sqrt_size; j++)
         {
-            if (array[(sub_grid_no / 3) * 3 + i][(sub_grid_no % 3) * 3 + j] ==
-                num)
+            if (array[(sub_grid_no / 3) * 3 + i][(sub_grid_no % 3) * 3 + j] == num)
             {
                 if (count)
                 {
